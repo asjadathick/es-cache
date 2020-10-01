@@ -1,0 +1,16 @@
+{
+    "id": "escache-ag1-",
+    "description": "for each type of event.dataset, get a terms list of all winlog.event_id",
+    "index_pattern": "endgame*",
+    "filter_term": "event.dataset",
+    "filter_terms_size": 100,
+    "filter_terms_exclude_list": ["process_internals"],
+    "aggs": {
+        "event_ids": {
+          "terms": {
+            "field": "agent.id",
+            "size": 10
+          }
+        }
+      }
+}
